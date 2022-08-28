@@ -3,16 +3,19 @@ import requests
 
 mb_url = "https://mb.srb2.org"
 mb_link = mb_url
-maps_sublink = mb_link + "/addons/categories/maps.4/"
-characters_sublink = mb_link + "/addons/categories/characters.5/"
-lua_sublink = mb_link + "/addons/categories/lua.7/"
-misc_sublink = mb_link + "/addons/categories/miscellaneous.8/"
-assets_sublink = mb_link + "/addons/categories/assets.6/"
+maps_sublink = mb_link + "/forums/maps.23/"
+characters_sublink = mb_link + "/forums/characters.25/"
+lua_sublink = mb_link + "/forums/lua.26/"
+misc_sublink = mb_link + "/forums/miscellaneous.27/"
+assets_sublink = mb_link + "/forums/assets.29/"
+# https://mb.srb2.org/addons/v4-0-1-patch-sound-warning-tails-dolls-forest-v4-0-1.3580/version/7617/download?file=75204
+# https://mb.srb2.org/addons/v4-0-1-patch-sound-warning-tails-dolls-forest-v4-0-1.3580/version/7617/download?file=75205
 # Oh so sneaky:
-headers =  {'User-Agent':
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) '
-            'AppleWebKit/537.36 (KHTML, like Gecko) '
-            'Chrome/39.0.2171.95 Safari/537.36'}
+headers = {'User-Agent':
+               'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) '
+               'AppleWebKit/537.36 (KHTML, like Gecko) '
+               'Chrome/39.0.2171.95 Safari/537.36'}
+
 
 class Mod:
     def __init__(self, name, thread_url):
@@ -31,7 +34,7 @@ class Mod:
             return None
         self.download_url = self.url + "download"
         return self.download_url
-    
+
     def get_html(self):
         url = self.url
         response = requests.get(url,
@@ -48,6 +51,7 @@ class Mod:
         self.description = '\n'.join(self.html.xpath(
             '//div[@class="bbWrapper"]/text()'))
         return self.description
+
 
 def get_mods(addons_subforum_url):
     """
@@ -84,6 +88,7 @@ def get_mods(addons_subforum_url):
 
     return mod_list
 
+
 def get_addons_page_html(url, page_num):
     """
     SRB2 MB is broken up into subforums that sometimes have multiple pages.
@@ -98,16 +103,19 @@ def get_addons_page_html(url, page_num):
     response.raw.decode_content = True
     return html.parse(response.raw)
 
+
 def get_mod_download_url(mod):
     if not mod.download_url:
         mod.set_download_url()
     return mod.download_url
+
 
 def get_mod_by_name(name, mod_list):
     for mod in mod_list:
         if mod.name == name:
             return mod
     return Mod("blank", "blank")  # Return a blank mod so functions that rely on this function don't crash
+
 
 def get_list_of_thread_names(parsed_html):
     """
@@ -117,8 +125,10 @@ def get_list_of_thread_names(parsed_html):
     """
     return parsed_html.xpath('.//div[@class="structItem-title"]/*[@data-tp-primary="on"]/text()')
 
+
 def get_list_of_thread_links(parsed_html):
     return parsed_html.xpath('.//div[@class="structItem-title"]/*[@data-tp-primary="on"]/@href')
+
 
 def download_mod(base_path, download_url):
     # TODO: apparently https://.../download isn't the actual download URL! It crashes this function.
@@ -130,9 +140,10 @@ def download_mod(base_path, download_url):
             for chunk in r.iter_content(chunk_size=8192):
                 # If you have chunk encoded response uncomment if
                 # and set chunk_size parameter to None.
-                #if chunk:
+                # if chunk:
                 f.write(chunk)
     return filepath
+
 
 def extract_mod(filepath):
     extracted_files = []  # full filepaths

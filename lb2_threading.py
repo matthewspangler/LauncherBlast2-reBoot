@@ -27,6 +27,7 @@ class QueryMessageBoard(QtCore.QThread):
         print("on_request_mod_desc")
         self.mod = mod
 
+    # TODO create exceptions for MB not loading
     def run(self):
         self.running = True
         while self.running:
