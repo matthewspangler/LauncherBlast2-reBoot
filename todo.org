@@ -1,4 +1,5 @@
 * Feature list
+    - Mod downloading for Kart mods
     - Button and dialog window to see detailed info on individual SRB2 servers.
     - Functionality in "Download" mod button
     - Mod "installer" and "uninstaller"

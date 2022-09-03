@@ -1,10 +1,12 @@
 import time
+import sys
 
-from PySide6 import QtCore
+from PySide6 import QtCore, QtWidgets
 from PySide6.QtCore import Signal
 
 from networking import mb_query
 from networking.ms_query import get_server_list, ms_url, ms_kart_url
+from select_item_dialog import SelectItemDialog
 
 class QueryMessageBoard(QtCore.QThread):
     # Emits a string describing the mod
@@ -109,13 +111,24 @@ class ModDownloader(QtCore.QThread):
     def run(self):
         while self.running:
             if self.download_urls and self.filepath:
+
                 filepaths = []
-                for url in self.download_urls:
-                    print(url)
-                    #filepaths.append(mb_query.download_mod(self.filepath, self.download_button_url))
+                mod_selection = None
+                if self.download_urls > 1:
+                    dialog = SelectItemDialog(self.download_urls)
+                    r = dialog.exec()
+                    mod_selection = dialog.get_selected_items()
+                else:
+                    mod_selection = self.download_urls
+
+                for name, url in mod_selection:
+                    # TODO download selector popup box
+                    print("Remove this later and uncomment the next line")
+                    filepaths.append(mb_query.download_mod(self.filepath, url))
                     # Extract files, get wads/pk3/etc to add.
+
                 self.mod_filepath_sig1.emit([filepaths])
-                print(filepaths)
+                #print(filepaths)
                 self.download_button_url = None
                 self.filepath = None
             time.sleep(1)

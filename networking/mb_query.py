@@ -45,16 +45,18 @@ class Mod:
         return self.download_button_url
 
     def get_download_urls(self):
-        download_urls = []
+        download_urls = {}
         response = requests.get(self.download_button_url, stream=True, headers=headers)
         response.raw.decode_content = True
         download_page = html.parse(response.raw)
         if "Choose file…" in download_page.xpath('//h1[@class="p-title-value"]/text()'):
             for url in download_page.xpath('//a[@class="button button--icon button--icon--download"]/@href'):
-                download_urls.append(self.mb_base_url + url)
+                download_name = download_page.xpath(
+                    '//a[@href="{}"]/ancestor::div[@class="contentRow-main"]/h3/text()'.format(url))
+                download_urls[download_name[0]] = self.mb_base_url + url
         # Only 1 download URL:
         else:
-            download_urls = self.download_button_url
+            download_urls["Download"] = self.download_button_url
         return download_urls
 
     def get_description(self):
