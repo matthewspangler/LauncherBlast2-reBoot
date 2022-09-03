@@ -114,7 +114,7 @@ class ModDownloader(QtCore.QThread):
 
                 filepaths = []
                 mod_selection = None
-                if self.download_urls > 1:
+                if len(self.download_urls) > 1:
                     dialog = SelectItemDialog(self.download_urls)
                     r = dialog.exec()
                     mod_selection = dialog.get_selected_items()
