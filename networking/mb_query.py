@@ -8,8 +8,7 @@ characters_sublink = mb_link + "/forums/characters.25/"
 lua_sublink = mb_link + "/forums/lua.26/"
 misc_sublink = mb_link + "/forums/miscellaneous.27/"
 assets_sublink = mb_link + "/forums/assets.29/"
-# https://mb.srb2.org/addons/v4-0-1-patch-sound-warning-tails-dolls-forest-v4-0-1.3580/version/7617/download?file=75204
-# https://mb.srb2.org/addons/v4-0-1-patch-sound-warning-tails-dolls-forest-v4-0-1.3580/version/7617/download?file=75205
+
 # Oh so sneaky:
 headers = {'User-Agent':
                'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) '
@@ -23,17 +22,9 @@ class Mod:
         self.name = name
         self.thread_base_url = thread_url
         self.description = None
-        self.download_url = None
+        self.download_button_url = None
         self.url = self.mb_base_url + self.thread_base_url
-        self.set_download_url()
         self.html = None
-
-    def set_download_url(self):
-        self.url = self.mb_base_url + self.thread_base_url
-        if not self.thread_base_url:
-            return None
-        self.download_url = self.url + "download"
-        return self.download_url
 
     def get_html(self):
         url = self.url
@@ -43,6 +34,15 @@ class Mod:
         response.raw.decode_content = True
         self.html = html.parse(response.raw)
         return self.html
+
+    def set_download_button_link(mod):
+        mod_page_response = requests.get(mod.url, stream=True, headers=headers)
+        mod_page_response.raw.decode_content = True
+        mod_page = html.parse(mod_page_response.raw)
+        download_button_url = mod_page.xpath(
+            '//a[@class="button--cta resourceDownload button button--icon button--icon--download"]/@href')
+        mod.download_button_url = download_button_url
+        return download_button_url
 
     def get_description(self):
         print("get_mod_description")
@@ -103,13 +103,6 @@ def get_addons_page_html(url, page_num):
     response.raw.decode_content = True
     return html.parse(response.raw)
 
-
-def get_mod_download_url(mod):
-    if not mod.download_url:
-        mod.set_download_url()
-    return mod.download_url
-
-
 def get_mod_by_name(name, mod_list):
     for mod in mod_list:
         if mod.name == name:
@@ -130,6 +123,21 @@ def get_list_of_thread_links(parsed_html):
     return parsed_html.xpath('.//div[@class="structItem-title"]/*[@data-tp-primary="on"]/@href')
 
 
+def get_download_urls(download_button_url):
+    download_urls = []
+    response = requests.get(download_button_url, stream=True, headers=headers)
+    response.raw.decode_content = True
+    download_page = html.parse(response.raw)
+    if "Choose file…" in download_page.xpath('//h1[@class="p-title-value"]/text()'):
+        for url in download_page.xpath('//a[@class="button button--icon button--icon--download"]/@href'):
+            download_urls.append(url)
+    # Only 1 download URL:
+    else:
+        download_urls = download_button_url
+    print(download_urls)
+    return download_urls
+
+
 def download_mod(base_path, download_url):
     # TODO: apparently https://.../download isn't the actual download URL! It crashes this function.
     filepath = base_path + download_url.split('/')[-1]
@@ -148,3 +156,7 @@ def download_mod(base_path, download_url):
 def extract_mod(filepath):
     extracted_files = []  # full filepaths
     return extracted_files
+
+# TODO: remove these testing links:
+# https://mb.srb2.org/addons/v4-0-1-patch-sound-warning-tails-dolls-forest-v4-0-1.3580/version/7617/download?file=75204
+# https://mb.srb2.org/addons/v4-0-1-patch-sound-warning-tails-dolls-forest-v4-0-1.3580/version/7617/download?file=75205

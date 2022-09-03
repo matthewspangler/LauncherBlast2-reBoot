@@ -423,14 +423,13 @@ class MainWindow(QMainWindow):
 
     def download_mod(self):
         if self.mods_list:
-
             mod = self.get_selected_mod()
-            mod.set_download_url()
+            mod.set_download_button_link()
             path = self.ui.GameExecFilePathInput.text()
             # TODO: delete next line
             path = "~/"
             self.ui.ModStatusLabel.setText("Downloading mod...")
-            self.download_mod_url_sig.emit(mod.download_url)
+            self.download_mod_url_sig.emit(mod.download_button_url)
             self.download_mod_path_sig.emit(path)
 
     def append_mod_to_list(self, mod_name):

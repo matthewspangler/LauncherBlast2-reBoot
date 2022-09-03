@@ -109,10 +109,14 @@ class ModDownloader(QtCore.QThread):
     def run(self):
         while self.running:
             if self.download_url and self.filepath:
-                filepath = mb_query.download_mod(self.filepath, self.download_url)
-                # Extract files, get wads/pk3/etc to add.
-
-                self.mod_filepath_sig1.emit([filepath])
+                download_urls = mb_query.get_download_urls(self.download_url)
+                filepaths = []
+                for url in download_urls:
+                    filepaths.append(mb_query.download_mod(self.filepath, self.download_url))
+                    # Extract files, get wads/pk3/etc to add.
+                self.mod_filepath_sig1.emit([filepaths])
+                print(download_urls)
+                print(filepaths)
                 self.download_url = None
                 self.filepath = None
             time.sleep(1)
