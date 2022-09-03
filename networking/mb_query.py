@@ -35,14 +35,27 @@ class Mod:
         self.html = html.parse(response.raw)
         return self.html
 
-    def set_download_button_link(mod):
-        mod_page_response = requests.get(mod.url, stream=True, headers=headers)
+    def set_download_button_link(self):
+        mod_page_response = requests.get(self.url, stream=True, headers=headers)
         mod_page_response.raw.decode_content = True
         mod_page = html.parse(mod_page_response.raw)
         download_button_url = mod_page.xpath(
             '//a[@class="button--cta resourceDownload button button--icon button--icon--download"]/@href')
-        mod.download_button_url = download_button_url
-        return download_button_url
+        self.download_button_url = self.mb_base_url + download_button_url[0]
+        return self.download_button_url
+
+    def get_download_urls(self):
+        download_urls = []
+        response = requests.get(self.download_button_url, stream=True, headers=headers)
+        response.raw.decode_content = True
+        download_page = html.parse(response.raw)
+        if "Choose file…" in download_page.xpath('//h1[@class="p-title-value"]/text()'):
+            for url in download_page.xpath('//a[@class="button button--icon button--icon--download"]/@href'):
+                download_urls.append(self.mb_base_url + url)
+        # Only 1 download URL:
+        else:
+            download_urls = self.download_button_url
+        return download_urls
 
     def get_description(self):
         print("get_mod_description")
@@ -121,21 +134,6 @@ def get_list_of_thread_names(parsed_html):
 
 def get_list_of_thread_links(parsed_html):
     return parsed_html.xpath('.//div[@class="structItem-title"]/*[@data-tp-primary="on"]/@href')
-
-
-def get_download_urls(download_button_url):
-    download_urls = []
-    response = requests.get(download_button_url, stream=True, headers=headers)
-    response.raw.decode_content = True
-    download_page = html.parse(response.raw)
-    if "Choose file…" in download_page.xpath('//h1[@class="p-title-value"]/text()'):
-        for url in download_page.xpath('//a[@class="button button--icon button--icon--download"]/@href'):
-            download_urls.append(url)
-    # Only 1 download URL:
-    else:
-        download_urls = download_button_url
-    print(download_urls)
-    return download_urls
 
 
 def download_mod(base_path, download_url):

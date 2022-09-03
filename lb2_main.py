@@ -32,8 +32,8 @@ class MainWindow(QMainWindow):
     mod_list_sig = Signal(dict)
     # Emits bool, telling QThread to query the master server
     query_ms_sig = Signal(bool)
-    # Emits mod download URL string
-    download_mod_url_sig = Signal(str)
+    # Emits mod
+    download_mod_emit = Signal(object)
     # Emits mod download filepath
     download_mod_path_sig = Signal(str)
     
@@ -75,7 +75,7 @@ class MainWindow(QMainWindow):
         # Download mod multithreading
         self.mod_download_qthread = ModDownloader()
         self.mod_download_qthread.start()
-        self.download_mod_url_sig.connect(self.mod_download_qthread.on_download_button)
+        self.download_mod_emit.connect(self.mod_download_qthread.on_download_button)
         self.download_mod_path_sig.connect(self.mod_download_qthread.on_filepath_emit)
         self.mod_download_qthread.mod_filepath_sig1.connect(self.add_mod_to_files)
 
@@ -429,7 +429,7 @@ class MainWindow(QMainWindow):
             # TODO: delete next line
             path = "~/"
             self.ui.ModStatusLabel.setText("Downloading mod...")
-            self.download_mod_url_sig.emit(mod.download_button_url)
+            self.download_mod_emit.emit(mod)
             self.download_mod_path_sig.emit(path)
 
     def append_mod_to_list(self, mod_name):

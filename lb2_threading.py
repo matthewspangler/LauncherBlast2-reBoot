@@ -96,27 +96,26 @@ class ModDownloader(QtCore.QThread):
     
     def __init__(self, parent=None):
         QtCore.QThread.__init__(self, parent)
-        self.download_url = None
+        self.download_urls = None
         self.filepath = None
         self.running = True
         
-    def on_download_button(self, download_url):
-        self.download_url = download_url
+    def on_download_button(self, mod):
+        self.download_urls = mod.get_download_urls()
         
     def on_filepath_emit(self, filepath):
         self.filepath = filepath
         
     def run(self):
         while self.running:
-            if self.download_url and self.filepath:
-                download_urls = mb_query.get_download_urls(self.download_url)
+            if self.download_urls and self.filepath:
                 filepaths = []
-                for url in download_urls:
-                    filepaths.append(mb_query.download_mod(self.filepath, self.download_url))
+                for url in self.download_urls:
+                    print(url)
+                    #filepaths.append(mb_query.download_mod(self.filepath, self.download_button_url))
                     # Extract files, get wads/pk3/etc to add.
                 self.mod_filepath_sig1.emit([filepaths])
-                print(download_urls)
                 print(filepaths)
-                self.download_url = None
+                self.download_button_url = None
                 self.filepath = None
             time.sleep(1)
