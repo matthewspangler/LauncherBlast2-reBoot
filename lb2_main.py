@@ -428,7 +428,7 @@ class MainWindow(QMainWindow):
             # TODO: Need an addons path setting:
             #path = self.ui.GameExecFilePathInput.text() + '/addons/'
             path = self.ui.ModsDirFilePathInput.text()
-            path = "./addons/"
+            #path = "./addons/"
             self.ui.ModStatusLabel.setText("Downloading mod...")
             self.download_mod_emit.emit(mod)
             self.download_mod_path_sig.emit(path)

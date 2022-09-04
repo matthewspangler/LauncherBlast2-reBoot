@@ -1470,7 +1470,7 @@ font-size: 12pt;</string>
                         <item>
                          <widget class="QLineEdit" name="ModsDirFilePathInput">
                           <property name="text">
-                           <string>addons/ </string>
+                           <string>./addons</string>
                           </property>
                          </widget>
                         </item>
@@ -2980,7 +2980,7 @@ font-size: 12pt;</string>
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>84</width>
+                <width>98</width>
                 <height>70</height>
                </rect>
               </property>

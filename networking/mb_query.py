@@ -158,7 +158,7 @@ def download_mod(base_path, download_url):
     # NOTE the stream=True parameter below
     with requests.get(download_url, stream=True, headers=headers) as r:
         filename = r.headers.get("Content-Disposition").split("filename=")[1]
-        filepath = base_path + filename.replace('"', '')  # download_url.split('/')[-1]
+        filepath = base_path + filename.replace('"', '')
         r.raise_for_status()
         with open(filepath, 'wb') as f:
             for chunk in r.iter_content(chunk_size=8192):
