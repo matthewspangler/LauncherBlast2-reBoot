@@ -425,9 +425,10 @@ class MainWindow(QMainWindow):
         if self.mods_list:
             mod = self.get_selected_mod()
             mod.set_download_button_link()
-            path = self.ui.GameExecFilePathInput.text()
-            # TODO: delete next line
-            path = "~/"
+            path = self.ui.GameExecFilePathInput.text() + '/addons/'
+            # If path empty:
+            if not path:
+                path = "./addons/"
             self.ui.ModStatusLabel.setText("Downloading mod...")
             self.download_mod_emit.emit(mod)
             self.download_mod_path_sig.emit(path)

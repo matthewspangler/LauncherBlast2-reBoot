@@ -115,13 +115,14 @@ class ModDownloader(QtCore.QThread):
                 filepaths = []
                 mod_selection = None
                 if len(self.download_urls) > 1:
+                    # TODO: window title & "ok" button
                     dialog = SelectItemDialog(self.download_urls)
                     r = dialog.exec()
                     mod_selection = dialog.get_selected_items()
                 else:
                     mod_selection = self.download_urls
-
-                for name, url in mod_selection:
+                print(mod_selection)
+                for name, url in mod_selection.items():
                     # TODO download selector popup box
                     print("Remove this later and uncomment the next line")
                     filepaths.append(mb_query.download_mod(self.filepath, url))

@@ -118,6 +118,7 @@ def get_addons_page_html(url, page_num):
     response.raw.decode_content = True
     return html.parse(response.raw)
 
+
 def get_mod_by_name(name, mod_list):
     for mod in mod_list:
         if mod.name == name:
@@ -138,11 +139,26 @@ def get_list_of_thread_links(parsed_html):
     return parsed_html.xpath('.//div[@class="structItem-title"]/*[@data-tp-primary="on"]/@href')
 
 
+def is_downloadable(url):
+    """
+    Does the url contain a downloadable resource
+    """
+    h = requests.head(url, allow_redirects=True)
+    header = h.headers
+    content_type = header.get('content-type')
+    if 'text' in content_type.lower():
+        return False
+    if 'html' in content_type.lower():
+        return False
+    return True
+
+
 def download_mod(base_path, download_url):
     # TODO: apparently https://.../download isn't the actual download URL! It crashes this function.
-    filepath = base_path + download_url.split('/')[-1]
     # NOTE the stream=True parameter below
     with requests.get(download_url, stream=True, headers=headers) as r:
+        filename = r.headers.get("Content-Disposition").split("filename=")[1]
+        filepath = base_path + filename.replace('"', '')  # download_url.split('/')[-1]
         r.raise_for_status()
         with open(filepath, 'wb') as f:
             for chunk in r.iter_content(chunk_size=8192):
