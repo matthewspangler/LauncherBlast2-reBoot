@@ -1,4 +1,5 @@
 * Feature list
+    - Browse buttons for Mods + EXE path line edits, doesn't currently have functionality
     - Mod downloading for Kart mods
     - Button and dialog window to see detailed info on individual SRB2 servers.
     - Functionality in "Download" mod button

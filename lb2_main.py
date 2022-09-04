@@ -425,10 +425,10 @@ class MainWindow(QMainWindow):
         if self.mods_list:
             mod = self.get_selected_mod()
             mod.set_download_button_link()
-            path = self.ui.GameExecFilePathInput.text() + '/addons/'
-            # If path empty:
-            if not path:
-                path = "./addons/"
+            # TODO: Need an addons path setting:
+            #path = self.ui.GameExecFilePathInput.text() + '/addons/'
+            path = self.ui.ModsDirFilePathInput.text()
+            path = "./addons/"
             self.ui.ModStatusLabel.setText("Downloading mod...")
             self.download_mod_emit.emit(mod)
             self.download_mod_path_sig.emit(path)
@@ -874,6 +874,7 @@ class MainWindow(QMainWindow):
         self.ui.GameMusicSetting.setCurrentIndex(profile_settings_dict["game"]["music"])
         self.ui.GameSoundSetting.setCurrentIndex(profile_settings_dict["game"]["sound"])
         self.ui.GameExecFilePathInput.setText(profile_settings_dict["game"]["exepath"])
+        self.ui.ModsDirFilePathInput.setText(profile_settings_dict["game"]["modspath"])
         self.ui.GameArgsInput.setText(profile_settings_dict["game"]["cliargs"])
         self.ui.ServerNameInput.setText(profile_settings_dict["host"]["hostname"])
         self.ui.AdminPasswordInput.setText(profile_settings_dict["host"]["password"])
@@ -911,6 +912,7 @@ class MainWindow(QMainWindow):
         toml_settings["game"]["music"] = self.ui.GameMusicSetting.currentIndex()
         toml_settings["game"]["sound"] = self.ui.GameSoundSetting.currentIndex()
         toml_settings["game"]["exepath"] = self.ui.GameExecFilePathInput.text()
+        toml_settings["game"]["modspath"] = self.ui.ModsDirFilePathInput.text()
         toml_settings["game"]["cliargs"] = self.ui.GameArgsInput.text()
         toml_settings["host"]["hostname"] = self.ui.ServerNameInput.text()
         toml_settings["host"]["password"] = self.ui.AdminPasswordInput.text()

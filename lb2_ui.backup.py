@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'lb2.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.2.4
+## Created by: Qt User Interface Compiler version 6.2.3
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -130,7 +130,7 @@ class Ui_MainWindow(object):
         self.NewsScrollArea.setWidgetResizable(True)
         self.NewsScrollAreaContent = QWidget()
         self.NewsScrollAreaContent.setObjectName(u"NewsScrollAreaContent")
-        self.NewsScrollAreaContent.setGeometry(QRect(0, 0, 168, 41))
+        self.NewsScrollAreaContent.setGeometry(QRect(0, 0, 190, 42))
         self.NewsScrollAreaContent.setStyleSheet(u"")
         self.verticalLayout_20 = QVBoxLayout(self.NewsScrollAreaContent)
         self.verticalLayout_20.setObjectName(u"verticalLayout_20")
@@ -679,40 +679,19 @@ class Ui_MainWindow(object):
         self.gridLayout_4 = QGridLayout(self.GameExecFilePath)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
         self.gridLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.GameExecFilePathInput = QLineEdit(self.GameExecFilePath)
+        self.GameExecFilePathInput.setObjectName(u"GameExecFilePathInput")
+
+        self.gridLayout_4.addWidget(self.GameExecFilePathInput, 0, 0, 1, 1)
+
         self.GameExecFilePathBrowse = QPushButton(self.GameExecFilePath)
         self.GameExecFilePathBrowse.setObjectName(u"GameExecFilePathBrowse")
         self.GameExecFilePathBrowse.setMinimumSize(QSize(0, 28))
 
         self.gridLayout_4.addWidget(self.GameExecFilePathBrowse, 0, 1, 1, 1)
 
-        self.GameExecFilePathInput = QLineEdit(self.GameExecFilePath)
-        self.GameExecFilePathInput.setObjectName(u"GameExecFilePathInput")
-
-        self.gridLayout_4.addWidget(self.GameExecFilePathInput, 0, 0, 1, 1)
-
 
         self.verticalLayout_27.addWidget(self.GameExecFilePath)
-
-        self.label_5 = QLabel(self.GameSettingsPage)
-        self.label_5.setObjectName(u"label_5")
-
-        self.verticalLayout_27.addWidget(self.label_5)
-
-        self.horizontalLayout_22 = QHBoxLayout()
-        self.horizontalLayout_22.setObjectName(u"horizontalLayout_22")
-        self.ModsDirFilePathInput = QLineEdit(self.GameSettingsPage)
-        self.ModsDirFilePathInput.setObjectName(u"ModsDirFilePathInput")
-
-        self.horizontalLayout_22.addWidget(self.ModsDirFilePathInput)
-
-        self.ModsDirFilePathBrowse = QPushButton(self.GameSettingsPage)
-        self.ModsDirFilePathBrowse.setObjectName(u"ModsDirFilePathBrowse")
-        self.ModsDirFilePathBrowse.setMinimumSize(QSize(0, 28))
-
-        self.horizontalLayout_22.addWidget(self.ModsDirFilePathBrowse)
-
-
-        self.verticalLayout_27.addLayout(self.horizontalLayout_22)
 
         self.WineToggle = QCheckBox(self.GameSettingsPage)
         self.WineToggle.setObjectName(u"WineToggle")
@@ -911,7 +890,7 @@ class Ui_MainWindow(object):
         self.scrollArea_4.setWidgetResizable(True)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 295, 620))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 324, 686))
         self.verticalLayout_16 = QVBoxLayout(self.scrollAreaWidgetContents_4)
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
         self.verticalLayout_16.setContentsMargins(9, 9, 9, 9)
@@ -1108,7 +1087,7 @@ class Ui_MainWindow(object):
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 539, 292))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 587, 330))
         self.scrollAreaWidgetContents_3.setStyleSheet(u"")
         self.verticalLayout_13 = QVBoxLayout(self.scrollAreaWidgetContents_3)
         self.verticalLayout_13.setSpacing(6)
@@ -1330,7 +1309,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 84, 70))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 98, 78))
         self.verticalLayout_19 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_19.setSpacing(0)
         self.verticalLayout_19.setObjectName(u"verticalLayout_19")
@@ -1358,7 +1337,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 230, 157))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 261, 172))
         self.verticalLayout_18 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_18.setObjectName(u"verticalLayout_18")
         self.ProfileDirLabel = QLabel(self.scrollAreaWidgetContents)
@@ -1420,7 +1399,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.MainTabsStackedWidget.setCurrentIndex(1)
-        self.GameContentStackedWidget.setCurrentIndex(2)
+        self.GameContentStackedWidget.setCurrentIndex(0)
         self.tabWidget.setCurrentIndex(1)
         self.PlayerSkinInput.setCurrentIndex(0)
         self.PlayerColorInput.setCurrentIndex(0)
@@ -1527,11 +1506,8 @@ class Ui_MainWindow(object):
         self.GameSoundSetting.setItemText(1, QCoreApplication.translate("MainWindow", u"Disable sound", None))
 
         self.GameExecPathLabel.setText(QCoreApplication.translate("MainWindow", u"EXE PATH", None))
-        self.GameExecFilePathBrowse.setText(QCoreApplication.translate("MainWindow", u"Browse...", None))
         self.GameExecFilePathInput.setText(QCoreApplication.translate("MainWindow", u"srb2win.exe", None))
-        self.label_5.setText(QCoreApplication.translate("MainWindow", u"MODS PATH", None))
-        self.ModsDirFilePathInput.setText(QCoreApplication.translate("MainWindow", u"addons/ ", None))
-        self.ModsDirFilePathBrowse.setText(QCoreApplication.translate("MainWindow", u"Browse...", None))
+        self.GameExecFilePathBrowse.setText(QCoreApplication.translate("MainWindow", u"Browse...", None))
         self.WineToggle.setText(QCoreApplication.translate("MainWindow", u"RUN SRB2 IN WINE", None))
         self.GameArgsLabel.setText(QCoreApplication.translate("MainWindow", u"CUSTOM CLI PARAMETERS", None))
         self.PlayerNameTitleLabel.setText(QCoreApplication.translate("MainWindow", u"NICKNAME", None))
@@ -1689,55 +1665,54 @@ class Ui_MainWindow(object):
         self.GamePlayButton.setText(QCoreApplication.translate("MainWindow", u"PLAY", None))
         self.GameOptionsDropDownButton.setText("")
         self.textEdit.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"hr { height: 1px; border-width: 0; }\n"
-"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"</style></head><body style=\" font-family:'Noto Sans'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">LauncherBlast2 &quot;reBoot&quot; by HitCoder</span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-"
-                        "size:8pt;\">Built in PyQt5</span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">Built in PyQt5</span></p>\n"
+"<p style=\"-qt-paragraph-"
+                        "type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"https://mb.srb2.org/threads/launcherblast2-reboot.27592/\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; text-decoration: underline; color:#7777ff;\">View the SRB2 Message Board thread</span></a></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:10pt; font-weight:600;\">Credits</span></p>\n"
-""
-                        "<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">FinestElite - icons for News and Help</li>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-weight:600;\">Credits</span></p>\n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: "
+                        "0px; -qt-list-indent: 1;\"><li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">FinestElite - icons for News and Help</li>\n"
 "<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Sonic Team Jr - SRB2 icon</li></ul>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:10pt; font-weight:600;\">reBoot-2.0 changelog</span></p>\n"
-"<ul style=\"margin-top: 0px"
-                        "; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">UI Overhaul - main tabs are now at the top and use icons instead of text</li>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-weight:600;\">reBoot-2.0 changelog</span></p>\n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\"><li style=\" fon"
+                        "t-family:'MS Shell Dlg 2'; font-size:8pt;\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">UI Overhaul - main tabs are now at the top and use icons instead of text</li>\n"
 "<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Introduction of profiles, allowing support for multiple installations of different versions of SRB2 or mods of SRB2 such as SRB2Kart</li>\n"
 "<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Fixed a bug with spaces in filenames when adding files to the game</li>\n"
-"<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" style=\" margin-top:12px; margin-bottom:12px"
-                        "; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Fixed a bug with spaces in player nicknames</li>\n"
+"<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Fixed a bug with spac"
+                        "es in player nicknames</li>\n"
 "<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">The console no longer opens with the launcher</li>\n"
 "<li style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Added new icon for the launcher</li></ul>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p style=\" margin-top:"
-                        "0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; text-decoration: underline;\">FAQ</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\""
+                        "><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; text-decoration: underline;\">FAQ</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:6pt;\"> </span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:11pt; text-decoration: underline;\">How do I host a server?</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">To host a server, select the host server tab. You will be given a multitude of options for your server. To start your server, you will find that on this tab, your &qu"
-                        "ot;Play&quot; button has changed to read &quot;Start Server&quot;. You can only start a server with this tab selected.</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">To host a server, select the host server tab. You will be given a multitude of options for your server. To start your server, you will find that on this tab, your &quot;Play&quot; button has changed to read &quot;Start Server&quot;. You can only start a server wi"
+                        "th this tab selected.</span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:11pt; text-decoration: underline;\">My antivirus detects Launcherblast2 as a trojan. Is this true?</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">Due to the nature of this utility, it is a small scale program that doesn't have a very big audience. Modern antivirus software may well detect it as a false-positive, as a precaution to &quot;unknown programs&qu"
-                        "ot;. If this happens, your antivirus may have an option to submit the program for analysis, in which case please do so!</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">Due to the nature of this utility, it is a small scale program that doesn't have a very big audience. Modern antivirus software may well detect it as a false-positive, as a precaution to &quot;unknown programs&quot;. If this happens, your antivirus may have an option to submit the program for analysis, in wh"
+                        "ich case please do so!</span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; text-decoration: underline;\">About Launcherblast2</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:6pt;\"> </span></p>\n"
-"<p style=\" m"
-                        "argin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">LAUNCHERBLAST2 is a project I started in 2019, before SRB2 2.2 was released. I wanted this to be released not long after 2.2 was, to go with it, but due to personal life and some other things I never got to finish it. Fast forward to early 2020, I remember this exists. I decided to finish it, though it's not to a standard I'd ideally like it to be. I do feel like it fits the bill for a nice looking launcher at it's forefront though.</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-ind"
+                        "ent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">LAUNCHERBLAST2 is a project I started in 2019, before SRB2 2.2 was released. I wanted this to be released not long after 2.2 was, to go with it, but due to personal life and some other things I never got to finish it. Fast forward to early 2020, I remember this exists. I decided to finish it, though it's not to a standard I'd ideally like it to be. I do feel like it fits the bill for a nice looking launcher at it's forefront though.</span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">There are a co"
-                        "uple of graphical glitches here and there because I realised not long into starting to develop this, that a lot of info on Qt5 is sparse, and some of the Qt4 stuff isn't directly compatible. I'm really sorry for the combo-boxes that have a weird square on them when you hover. I hope it doesn't bother you too much.</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">There are a couple of graphical glitches here and there because I realised not long into starting to develop th"
+                        "is, that a lot of info on Qt5 is sparse, and some of the Qt4 stuff isn't directly compatible. I'm really sorry for the combo-boxes that have a weird square on them when you hover. I hope it doesn't bother you too much.</span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">In case you didn't already notice, the design is very much inspired by the 2019 Minecraft Launcher. It was actually that which kick-started me into creating this. Anyway, hope you enjoy it, if you find any bugs let me know! I'll be working on this from time to time regardless, so updates may come soon. I"
-                        "'m not implementing an auto-updater though, as I don't have a server to place the metadata on for now.</span></p></body></html>", None))
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\">In case you didn't already notice, the design is very much inspired by the 2019 Minecraft Launcher. It was actually that which kick-started me into creating this. Anyway, hope you enjoy it, if you find any bugs let me know! I'll be working on this from time to time regardless, so updates may come soon. I'm not implementing an auto-updater though, as I don't have a server to place the metadata on for"
+                        " now.</span></p></body></html>", None))
         self.ProfileDirLabel.setText(QCoreApplication.translate("MainWindow", u"PROFILE DIRECTORY", None))
         self.ProfileDirBrowseButton.setText(QCoreApplication.translate("MainWindow", u"Browse", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"LAUNCHER THEME (REQUIRES RESTART)", None))
