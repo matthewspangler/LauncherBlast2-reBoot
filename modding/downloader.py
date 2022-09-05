@@ -12,10 +12,10 @@ import zipfile
 An example of the folder structure is as follows:
 - /SRB2
     - /2.2
-        - /mods
+        - /addons
             - /Multiplayer Map Pack
     - /1.09
-        - /mods
+        - /addons
             - /I Cant Think Of A Name Zone
 
 Subdirectories of /mods will be named after their MB thread name,
@@ -37,7 +37,7 @@ major_versions = [""]
 home_dir = "./SRB2"
 executable_list = []
 version_dirs = []
-mod_dir = "/mods"
+mod_dir = "/addons"
 # Github API has a request limit. See set_github_response()
 github_response = None
 version_num_regex = '(?:(\d+)\.)?(?:(\d+)\.)?(?:(\d+)\.\d+)'

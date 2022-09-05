@@ -1530,7 +1530,7 @@ class Ui_MainWindow(object):
         self.GameExecFilePathBrowse.setText(QCoreApplication.translate("MainWindow", u"Browse...", None))
         self.GameExecFilePathInput.setText(QCoreApplication.translate("MainWindow", u"srb2win.exe", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"MODS PATH", None))
-        self.ModsDirFilePathInput.setText(QCoreApplication.translate("MainWindow", u"./addons", None))
+        self.ModsDirFilePathInput.setText(QCoreApplication.translate("MainWindow", u"./addons/", None))
         self.ModsDirFilePathBrowse.setText(QCoreApplication.translate("MainWindow", u"Browse...", None))
         self.WineToggle.setText(QCoreApplication.translate("MainWindow", u"RUN SRB2 IN WINE", None))
         self.GameArgsLabel.setText(QCoreApplication.translate("MainWindow", u"CUSTOM CLI PARAMETERS", None))

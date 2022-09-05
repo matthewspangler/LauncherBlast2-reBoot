@@ -116,7 +116,7 @@ class ModDownloader(QtCore.QThread):
                 mod_selection = None
                 if len(self.download_urls) > 1:
                     # TODO: window title & "ok" button
-                    dialog = SelectItemDialog(self.download_urls)
+                    dialog = SelectItemDialog(self.download_urls, "Please select which addons to download...")
                     r = dialog.exec()
                     mod_selection = dialog.get_selected_items()
                 else:

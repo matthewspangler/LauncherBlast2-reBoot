@@ -1,5 +1,6 @@
 from lxml import html
 import requests
+from pathlib import Path
 
 mb_url = "https://mb.srb2.org"
 mb_link = mb_url
@@ -160,6 +161,8 @@ def download_mod(base_path, download_url):
         filename = r.headers.get("Content-Disposition").split("filename=")[1]
         filepath = base_path + filename.replace('"', '')
         r.raise_for_status()
+        # Create path if it doesn't already exist:
+        Path(filepath).mkdir(parents=True, exist_ok=True)
         with open(filepath, 'wb') as f:
             for chunk in r.iter_content(chunk_size=8192):
                 # If you have chunk encoded response uncomment if

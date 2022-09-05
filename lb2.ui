@@ -1470,7 +1470,7 @@ font-size: 12pt;</string>
                         <item>
                          <widget class="QLineEdit" name="ModsDirFilePathInput">
                           <property name="text">
-                           <string>./addons</string>
+                           <string>./addons/</string>
                           </property>
                          </widget>
                         </item>
