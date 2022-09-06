@@ -21,7 +21,7 @@ class SelectItemDialog(QtWidgets.QDialog):
         self.layout.addWidget(self.listWidget)
 
         self.buttonBox = QDialogButtonBox(QDialogButtonBox.Ok)
-        self.buttonBox.accepted.connect(self.accept)
+        self.buttonBox.accepted.connect(self.close)
         self.layout.addWidget(self.buttonBox)
 
         self.setLayout(self.layout)
